@@ -54,6 +54,20 @@ PRODUCT_COPY_FILES += \
     $(KERNEL_BIN):kernel
 
 ########################################################################
+# mesa gles
+########################################################################
+
+MESA_GPU_DRIVERS := swrast
+
+PRODUCT_PACKAGES += \
+    hwcomposer.x86  \
+    libGLES_mesa
+    #gralloc.drm     \
+
+PRODUCT_PROPERTY_OVERRIDES := \
+    ro.opengles.version = 196608
+
+########################################################################
 # fstab
 ########################################################################
 
@@ -101,8 +115,6 @@ ifdef SVMP_DEV_CERTIFICATE
 endif
 
 PRODUCT_POLICY := android.policy_phone
-
-MESA_GPU_DRIVERS := swrast llvmpipe
 
 PRODUCT_VERSION := 2.0.0-pre
 
